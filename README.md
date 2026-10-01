@@ -27,11 +27,15 @@ PhishRadar is designed for security analysts and anyone who needs to triage a su
 
 ![PhishRadar email analysis workspace](docs/screenshots/dashboard.png)
 
-### Example analysis report
+### Report summary and findings
 
 ![PhishRadar report showing a suspicious-email analysis](docs/screenshots/analysis-report.png)
 
-This report uses synthetic `.invalid` email addresses and contains no live reputation indicators. The evaluation sample set is small and does not represent general detection accuracy.
+### Detailed findings and reputation checks
+
+![PhishRadar detailed findings, indicators, and provider results](docs/screenshots/analysis-details.png)
+
+Screenshots illustrate a sample analysis; provider results can change and should not be treated as a current security verdict. The evaluation sample set is small and does not represent general detection accuracy.
 
 ### Technology
 
