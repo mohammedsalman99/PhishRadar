@@ -1,0 +1,13 @@
+services:
+  phishradar:
+    build: .
+    ports:
+      - "8000:8000"
+    env_file:
+      - path: .env
+        required: false
+    volumes:
+      - phishradar-data:/app/data
+
+volumes:
+  phishradar-data:

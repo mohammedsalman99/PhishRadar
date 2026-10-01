@@ -1,0 +1,8 @@
+From: PayPal Support <alerts@random-mail.example>
+Reply-To: collect@elsewhere.example
+Return-Path: <bounce@random-mail.example>
+Authentication-Results: mx.example; spf=fail; dkim=fail; dmarc=fail
+To: customer@example.test
+Subject: Urgent account verification
+
+Urgent: verify your account immediately at http://paypa1.example/login to avoid suspension.

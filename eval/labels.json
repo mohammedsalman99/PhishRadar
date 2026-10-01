@@ -1,0 +1,5 @@
+{
+  "clean.eml": "Safe",
+  "suspicious.eml": "Suspicious",
+  "phishing.eml": "Malicious"
+}

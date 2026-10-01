@@ -1,0 +1,6 @@
+From: sender@example.test
+To: recipient@example.test
+Subject: Static invalid DKIM fixture
+DKIM-Signature: v=1; a=rsa-sha256; d=example.test; s=test; c=relaxed/relaxed; bh=invalid; b=invalid
+
+Fixture body.
