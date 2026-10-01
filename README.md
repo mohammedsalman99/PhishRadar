@@ -8,9 +8,9 @@ PhishRadar is a local-first security application for analyzing suspicious email.
 
 PhishRadar is an analyst aid, not a guarantee that a message is safe. A `Safe` verdict means the configured checks did not cross the risk thresholds; it does not prove that an email is benign.
 
-## Project report
+## Overview
 
-PhishRadar demonstrates an end-to-end security analysis workflow: ingest an untrusted email, parse its MIME structure, run local detection and authentication checks, optionally enrich extracted indicators with reputation services, and return an explainable report through a browser dashboard or JSON API.
+PhishRadar is designed for security analysts and anyone who needs to triage a suspicious email. It accepts raw RFC822 messages or `.eml` files, performs local parsing and detection, optionally checks extracted indicators with reputation providers, and presents the results in a browser dashboard or JSON API. Findings include evidence and scoring details so a reviewer can understand why a message was flagged.
 
 | Attribute | Details |
 | --- | --- |
@@ -19,17 +19,19 @@ PhishRadar demonstrates an end-to-end security analysis workflow: ingest an untr
 | Analysis | RFC822/MIME parsing, sender and URL heuristics, DNS SPF/DMARC checks, DKIM signature verification |
 | Integrations | VirusTotal, AbuseIPDB, and opt-in URLhaus |
 | Data handling | SQLite reputation cache; complete message and attachment bytes remain local |
-| Quality checks | 25 automated tests pass; the three-message sanitized evaluation set currently scores 3/3 |
+| Quality checks | 25 automated tests pass; the three-message sanitized evaluation set currently scores 3/3 (illustrative only) |
 
-### CV-ready summary
+## Screenshots
 
-**PhishRadar | Python, FastAPI, email security, threat intelligence**
+### Analysis workspace
 
-- Built a web application and JSON API that analyze raw email and `.eml` messages, extracting sender metadata, URLs, attachment hashes, and authentication results.
-- Implemented explainable risk scoring with evidence-backed findings, severity-aware verdicts, and contextual MITRE ATT&CK references.
-- Added independent SPF/DMARC DNS evaluation and cryptographic DKIM verification, alongside optional VirusTotal, AbuseIPDB, and URLhaus enrichment.
-- Designed a local-first data flow with cached reputation lookups, explicit external-sharing boundaries, and no execution or rendering of email attachments or HTML.
-- Validated the workflow with 25 automated tests and a small labeled sample set (3/3); the sample result is illustrative, not a general accuracy claim.
+![PhishRadar email analysis workspace](docs/screenshots/dashboard.png)
+
+### Example analysis report
+
+![PhishRadar report showing a suspicious-email analysis](docs/screenshots/analysis-report.png)
+
+This report uses synthetic `.invalid` email addresses and contains no live reputation indicators. The evaluation sample set is small and does not represent general detection accuracy.
 
 ### Technology
 
@@ -37,8 +39,10 @@ Python 3.10+, FastAPI, Uvicorn, HTTPX, SQLite, dnspython, dkimpy, pytest, pytest
 
 ## Contents
 
+- [Overview](#overview)
 - [Features](#features)
 - [Current implementation status](#current-implementation-status)
+- [Screenshots](#screenshots)
 - [Architecture](#architecture)
 - [Requirements](#requirements)
 - [Run locally](#run-locally)
@@ -69,7 +73,7 @@ Python 3.10+, FastAPI, Uvicorn, HTTPX, SQLite, dnspython, dkimpy, pytest, pytest
 
 ## Current implementation status
 
-PhishRadar is a functional local analyst tool and portfolio-ready demonstration. The main analysis workflow, browser dashboard, API contract, mocked provider integrations, DNS/DKIM checks, automated tests, CI configuration, and evaluation harness are implemented. It is not positioned as a production mail gateway or a guarantee that an email is safe.
+PhishRadar is a functional local email triage tool. The main analysis workflow, browser dashboard, API contract, provider integrations, DNS/DKIM checks, automated tests, CI configuration, and evaluation harness are implemented. It is not a production mail gateway or a guarantee that an email is safe.
 
 | Area | Current status |
 | --- | --- |
